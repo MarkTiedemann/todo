@@ -1,4 +1,10 @@
 @echo off
-if exist "%~dp0todo" (
-    type "%~dp0todo"
+setlocal
+
+set todo_list=%~dp0todo_list
+
+if exist %todo_list% (
+    type %todo_list% 
 )
+
+endlocal
