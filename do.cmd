@@ -21,7 +21,14 @@ if %ticket% gtr 9 set pad=00
 if %ticket% gtr 99 set pad=0
 if %ticket% gtr 999 set pad=
 
+for /f "delims=#" %%e in ('"prompt #$e# & for %%e in (1) do rem"') do set esc=%%e
+<nul set /p=%esc%[32m
 echo %pad%%ticket% %*
+<nul set /p=%esc%[0m
+if exist "%~dp0todo" (
+    type "%~dp0todo"
+)
+
 echo %pad%%ticket% > "%~dp0ticket"
 echo %pad%%ticket% %* >> "%~dp0todo"
 
