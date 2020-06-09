@@ -3,6 +3,7 @@ setlocal enabledelayedexpansion
 
 set todo_list=%~dp0todo_list
 set todo_counter=%~dp0todo_counter
+set temp_file=%~dp0temp_file
 
 set /a counter=1
 if exist %todo_counter% (
@@ -33,6 +34,9 @@ if exist %todo_list% (
 )
 
 echo %pad%%counter% > %todo_counter%
-echo %pad%%counter% %* >> %todo_list%
+copy %todo_list% %temp_file% > nul
+echo %pad%%counter% %* > %todo_list%
+type %temp_file% >> %todo_list%
+del %temp_file%
 
 endlocal
