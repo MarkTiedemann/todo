@@ -31,6 +31,5 @@ for /f "tokens=*" %%l in (%todo_list%) do (
 		echo %%l
 	)
 )
-echo.
 
 move /y %temp_file% %todo_list% > nul
