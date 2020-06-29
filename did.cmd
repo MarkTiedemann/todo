@@ -24,7 +24,7 @@ for /f "delims=#" %%e in ('"prompt #$e# & for %%e in (1) do rem"') do (
 )
 
 for /f "tokens=*" %%l in (%todo_list%) do (
-	echo %%l | findstr /v /c:"%*" >> %temp_file%
+	echo %%l| findstr /v /c:"%*" >> %temp_file%
 	if !errorlevel! equ 1 (
 		echo %esc%[31m%%l%esc%[0m
 	) else (

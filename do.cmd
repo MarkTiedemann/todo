@@ -40,6 +40,6 @@ if exist %todo_list% (
 )
 
 copy %todo_list% %temp_file% > nul
-echo %pad%%counter% %* > %todo_list%
+echo %pad%%counter% %*> %todo_list%
 type %temp_file% >> %todo_list%
 del %temp_file%
